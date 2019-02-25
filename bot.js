@@ -4,19 +4,24 @@ function answerQuery(query) {
   // We are using a library called 'voca' (see https://vocajs.com) which has
   // many useful functions for working with strings. The following first converts
   // 'query' to lover-case and then tests if the query contains various keywords
-  // using 'v.includes'. You call all 'voca' functions by typing 'v.<some function>'/  
+  // using 'v.includes'. You call all 'voca' functions by typing 'v.<some function>'/
   query = v.lowerCase(query);
+  if isPermitted(query){
   if (v.includes(query, "rain") || v.includes(query, "sun") || v.includes(query, "weather"))
     return "I do not care too much about weather, I'm locked inside a data center.";
-if (v.includes(query, "tea") || v.includes(query, "biscuit") || v.includes(query, "drink"))
+  if (v.includes(query, "tea") || v.includes(query, "biscuit") || v.includes(query, "drink"))
     return "I would love some tea, but they have not created one for silicon-based life forms yet.";
-  return "Sorry Dave, I cannot do that."
+  return "Sorry Dave, I cannot do that.";}
+return false;
+
 }
 
 
 function isPermitted(query) {
   // You will need to implement this function in the last part of the exercise 
   // (after you add 'filtering.js' tests); you can ignore it until then!
+  if (v.includes(query, "brexit"))
+	  return false;
   return true;
 }
 
